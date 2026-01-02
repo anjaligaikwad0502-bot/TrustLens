@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TrustLens Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="card">
+        <h2 style="color:{{ color }};">
+            {{ label }} – {{ risk }}%
+        </h2>
+        <p>AI-powered job risk analysis by <b>TrustLens</b></p>
+    </div>
+
+    <div class="card">
+        <h3>⚠️ Why This Job Looks Risky</h3>
+        <ul>
+        {% for exp, weight in explanations %}
+            <li>{{ exp }} <span class="badge">+{{ weight }}%</span></li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>🔥 What-If Risk Simulator</h3>
+        <ul>
+        {% for k, v in simulations.items() %}
+            <li>
+                If <b>{{ k | replace('_',' ') }}</b> removed → <b>{{ v }}%</b>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>📄 Job Description</h3>
+        <p class="job-text">{{ text }}</p>
+    </div>
+
+    <div class="card">
+        <h3>🤖 Responsible AI Note</h3>
+        <p>TrustLens follows <b>Google Responsible AI principles</b> by:</p>
+        <ul>
+            <li>Providing explainable risk factors</li>
+            <li>Avoiding personal data storage</li>
+            <li>Using transparent ML + rule-based signals</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>🛡️ Student Safety Tips</h3>
+        <ul>
+            <li>❌ Never pay registration or joining fees</li>
+            <li>🔍 Verify company website & LinkedIn</li>
+            <li>⏳ Avoid urgent pressure offers</li>
+        </ul>
+    </div>
+
+    <a href="/" class="back-btn">⬅ Analyze another job</a>
+
+</div>
+
+</body>
+</html>
+
+
+
+
