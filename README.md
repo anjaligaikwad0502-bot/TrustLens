@@ -74,6 +74,6 @@ See the risk score and explanation for the message
 
 
 
-# 🖼️ Demo
 
-![TrustLens Input Screenshot]
+
+
